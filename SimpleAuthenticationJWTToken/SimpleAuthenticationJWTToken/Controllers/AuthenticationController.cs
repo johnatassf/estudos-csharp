@@ -30,7 +30,7 @@ namespace EstudoAutenticacao.Controllers
             if (user is null)
                 return BadRequest("Usuário ou senha inválidos");
 
-            return Ok(await _serviceAuthentication.AuthenticationUser(email, senha));
+            return Ok(_serviceAuthentication.AuthorizationTokenUser(user));
 
         }
 

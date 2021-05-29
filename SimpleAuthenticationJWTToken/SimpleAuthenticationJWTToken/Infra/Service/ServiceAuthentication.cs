@@ -40,7 +40,7 @@ namespace EstudoAutenticacao.Infra.Service
                     new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
                     new Claim("Id", user.Id.ToString()),
                     new Claim("Nome", user.Nome),
-                    new Claim("Login", user.Login),
+                    new Claim("Login", user.Login ?? string.Empty),
                     new Claim("Email", user.Email)
                    };
 

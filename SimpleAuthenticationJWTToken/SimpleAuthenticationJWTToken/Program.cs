@@ -19,10 +19,10 @@ namespace EstudoAutenticacao
                 var env = hostingContext.HostingEnvironment;
                 var path = Directory.GetCurrentDirectory();
 
-                //config.SetBasePath(path)
-                //      .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                //      .AddJsonFile($"appsettings{env}.json", optional: true, reloadOnChange: true)
-                //      .AddEnvironmentVariables();
+                config.SetBasePath(path)
+                      .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                      .AddJsonFile($"appsettings{env}.json", optional: true, reloadOnChange: true)
+                      .AddEnvironmentVariables();
             })
 
             .ConfigureWebHostDefaults(webBuilder =>
