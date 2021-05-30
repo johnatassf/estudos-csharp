@@ -1,8 +1,11 @@
 ﻿using EstudoAutenticacao.dbcontext;
+using EstudoAutenticacao.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using SimpleAuthenticationJWTToken.Infra.Auxiliary;
+using SimpleAuthenticationJWTToken.Infra.Service;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -16,11 +19,12 @@ namespace EstudoAutenticacao.Infra.Service
     public class ServiceAuthentication
     {
         public IConfiguration _configuration;
+        private IServiceManageUser _serviceManageUser;
         private readonly EstudoDbContext _context;
-        public ServiceAuthentication(IConfiguration config, EstudoDbContext context)
+        public ServiceAuthentication(IConfiguration config, IServiceManageUser serviceManageUser)
         {
             _configuration = config;
-            _context = context;
+            _serviceManageUser = serviceManageUser;
         }
         public string AuthorizationTokenUser(User user)
         {
@@ -62,8 +66,12 @@ namespace EstudoAutenticacao.Infra.Service
         }
         public async Task<User> AuthenticationUser(string email, string password)
         {
-            if (email == "email@gmail.com" && password == "123456")
-                return new User() { Id = 1, Email = "email@gmail.com", Nome = "Usuario" };
+            var user = await _serviceManageUser.GetUserByEmail(email);
+            
+            var passwordPassed = new ManagePassword().ValidatePassword(password, user.Hash);
+
+            if (!(user is null) && passwordPassed)
+                return user;
 
             return null;
         }

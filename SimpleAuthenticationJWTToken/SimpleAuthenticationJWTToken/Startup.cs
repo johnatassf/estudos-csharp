@@ -10,6 +10,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using SimpleAuthenticationJWTToken.Dominio.Dto;
+using SimpleAuthenticationJWTToken.Infra.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,7 @@ namespace EstudoAutenticacao
         }
 
         public IConfiguration Configuration { get; }
+        public IServiceManageUser _serviceManageUser;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -46,10 +49,17 @@ namespace EstudoAutenticacao
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]))
                 };
             });
-            //services.AddDbContext<EstudoDbContext>(options =>
-            //{
-            //    options.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
-            //});
+
+            services.AddDbContext<EstudoDbContext>(options =>
+            {
+                options.UseMySql(Configuration["ConnectionsStrings:DefaultConnection"]);
+            });
+
+            services.AddScoped<IServiceManageUser, ServiceManageUser>();
+
+            _serviceManageUser = services.BuildServiceProvider().GetService<IServiceManageUser>();
+
+            CreateUSerIfNotExist();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -72,6 +82,24 @@ namespace EstudoAutenticacao
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void CreateUSerIfNotExist()
+        {
+            var users = _serviceManageUser.GetUsers().Result;
+
+            if (!users.Any())
+            {
+                var userDto = new UserDto()
+                {
+                    Email = "admin@admin.com.br",
+                    Login = "Admin",
+                    Nome = "Admin",
+                    Senha = "Admin123"
+                };
+
+                var user = _serviceManageUser.CreateUser(userDto).Result;
+            }
         }
     }
 }
