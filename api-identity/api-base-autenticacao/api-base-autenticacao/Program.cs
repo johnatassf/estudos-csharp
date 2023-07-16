@@ -1,4 +1,6 @@
 using infrastructure;
+using Microsoft.AspNetCore.Identity;
+using Model.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,7 +11,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddIdentity<User, IdentityRole<long>>(cfg =>
+{
+    cfg.User.RequireUniqueEmail = true;
 
+}).AddEntityFrameworkStores<ApiContext>();
 
 builder.Services.AddDbContext<ApiContext>();
 
