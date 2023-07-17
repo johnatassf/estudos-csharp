@@ -80,7 +80,7 @@ namespace api_base_autenticacao.Controllers
                             new Claim(JwtRegisteredClaimNames.UniqueName, user.UserName),
                        };
 
-                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("testsetsetastase"));
+                    var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("1234567810soidfjiosdjfoisadf"));
                     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                     var token = new JwtSecurityToken(
