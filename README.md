@@ -19,7 +19,7 @@ This repository contains various projects and topics related to my studies in C#
 - [Getting Started](#getting-started)
 - [Projects](#projects)
 - [Documentation](#documentation)
-- [Contributing](#contributing)
+
 
 ## Getting Started
 
