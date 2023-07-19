@@ -2,7 +2,7 @@ using infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Model.Entities;
+using Dominio.Entities;
 using NuGet.Common;
 using System.Reflection.Metadata;
 using System.Text;

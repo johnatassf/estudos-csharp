@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using model.Entities;
-using Model.Entities;
-using System.Reflection.Metadata;
+using Dominio.Entities;
 
 namespace infrastructure
 {

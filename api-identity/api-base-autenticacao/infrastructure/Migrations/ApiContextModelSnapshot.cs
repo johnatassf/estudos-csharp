@@ -139,7 +139,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("UserTokens");
                 });
 
-            modelBuilder.Entity("Model.Entities.User", b =>
+            modelBuilder.Entity("Dominio.Entities.User", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -202,7 +202,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("model.Entities.WeatherForecast", b =>
+            modelBuilder.Entity("Dominio.Entities.WeatherForecast", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

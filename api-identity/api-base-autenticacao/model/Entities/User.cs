@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Identity;
 
-namespace Model.Entities
+namespace Dominio.Entities
 {
     public class User: IdentityUser<long>
     {

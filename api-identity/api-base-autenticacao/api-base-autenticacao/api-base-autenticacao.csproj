@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\infrastructure\Infrastructure.csproj" />
-    <ProjectReference Include="..\model\Model.csproj" />
+    <ProjectReference Include="..\model\Dominio.csproj" />
   </ItemGroup>
 
 </Project>

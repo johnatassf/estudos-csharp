@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.Dto
+namespace Dominio.Dto
 {
     public class LoginUserDto
     {

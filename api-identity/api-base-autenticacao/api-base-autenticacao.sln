@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "api-base-autenticacao", "ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "infrastructure\Infrastructure.csproj", "{5675CAA8-A6DE-4A24-BAD8-7AD1B129D615}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "model\Model.csproj", "{B94581B1-974C-4DB0-BCA1-1C4BE3BE936E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dominio", "model\Dominio.csproj", "{B94581B1-974C-4DB0-BCA1-1C4BE3BE936E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

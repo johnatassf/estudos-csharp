@@ -1,4 +1,4 @@
-namespace model.Entities
+namespace Dominio.Entities
 {
     public class WeatherForecast
     {
