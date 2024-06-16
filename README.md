@@ -1,7 +1,7 @@
 # Repository for C#, .NET, .NET Core, and .NET Framework Studies
 
-![C# Logo]<img src="https://raw.githubusercontent.com/github/explore/master/topics/csharp/csharp.png" width="100" alt="C# Logo">
-![.NET Logo]<img src="https://raw.githubusercontent.com/github/explore/master/topics/dotnet/dotnet.png" width="100" alt=".NET Logo">
+<img src="https://raw.githubusercontent.com/github/explore/master/topics/csharp/csharp.png" width="100" alt="C# Logo">
+<img src="https://raw.githubusercontent.com/github/explore/master/topics/dotnet/dotnet.png" width="100" alt=".NET Logo">
 
 This repository contains various projects and topics related to my studies in C#, .NET, .NET Core, and .NET Framework. It serves as a collection of educational materials, examples, and best practices for software development using Microsoft's technologies.
 
